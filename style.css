@@ -1,0 +1,263 @@
+:root {
+  --btn-color: #351e5f;
+  --bkg: #7240cd;
+  --text-color: #0be2ff;
+}
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color: white;
+  font-size: 62.5%;
+  height: 100vh;
+}
+
+body {
+  height: 100%;
+  font-family: "Roboto Mono", monospace;
+  background: var(--bkg);
+  padding: 3px;
+  user-select: none;
+}
+
+.secondSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  display: none;
+}
+
+.container {
+  width: max-content;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgb(110, 6, 119);
+  margin: auto;
+  position: relative;
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  z-index: 400000;
+  display: none;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  padding: 7px 0 7px 10px;
+  border-radius: 4px;
+  margin-top: 7px;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+  transform: scale(1.5);
+  border: none;
+  outline: none;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.btn {
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 5px 0 5px 0;
+  border-radius: 4px;
+  background: var(--btn-color);
+  color: white;
+  cursor: pointer;
+}
+
+.submitBook {
+  margin: 15px 0 15px 0;
+}
+
+.close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.main {
+  width: 100%;
+}
+
+.logs {
+  margin-top: 20px;
+  width: 100%;
+  border: 1px solid white;
+  max-width: max-content;
+  padding: 8px 20px 8px 20px;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.logs div {
+  margin-right: 10px;
+  font-size: 1.6rem;
+}
+
+.logs h2 {
+  font-weight: 500;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  text-align: start;
+}
+
+.mark {
+  appearance: none;
+  position: relative;
+  width: 30px;
+  height: 15px;
+  border-radius: 20px;
+  background: red;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.mark::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.mark:checked {
+  background: #13ef29;
+}
+
+.mark:checked::before {
+  left: 15px;
+}
+
+.addBooks {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: linear-gradient(to bottom right, #4d3677, var(--btn-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  box-shadow: inset 0 0 2px #604592;
+  cursor: pointer;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.addBooks span {
+  transform: scale(1.2) rotate(45deg);
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.addBooks:hover span {
+  transform: rotate(135deg) scale(1.2);
+}
+
+.addBooks:hover {
+  transform: scale(1.1);
+}
+
+.booksAdded {
+  display: grid;
+  position: relative;
+  margin-top: 20px;
+  gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+  background: transparent;
+}
+
+.book {
+  background: linear-gradient(to bottom right, #4d3677, var(--btn-color));
+  grid-column: span 12;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  position: relative;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.deleteBook {
+  position: absolute;
+  right: 8px;
+  cursor: pointer;
+}
+
+.display {
+  display: flex;
+}
+
+@media (min-width: 600px) {
+  .book {
+    grid-column: span 6;
+  }
+  header {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 900px) {
+  .book {
+    grid-column: span 4;
+  }
+}
+
+@media (min-width: 1200px) {
+  .book {
+    grid-column: span 3;
+  }
+}
+
+@media (min-width: 1400px) {
+  .booksAdded {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

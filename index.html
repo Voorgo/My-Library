@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>My Library</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="main">
+      <header>
+        <h1>My Library</h1>
+        <div class="logs">
+          <h2>Library Log</h2>
+          <div>Total books count: <span class="total">0</span></div>
+          <div>Read: <span class="numRead">0</span></div>
+          <div>Not read: <span class="numNotRead">0</span></div>
+        </div>
+      </header>
+      <div class="booksAdded">
+        <div class="book">
+          <h2>Game of Thrones</h2>
+          <p>By: ASGDSdsf</p>
+          <p>Number of pages: 324</p>
+          <p>Book status:</p>
+          <input type="checkbox" class="mark" />
+          <span class="material-icons deleteBook"> close </span>
+        </div>
+      </div>
+    </section>
+    <section class="secondSection">
+      <form class="container">
+        <h2>Add new book</h2>
+        <span class="material-icons close closeForm"> close </span>
+        <label
+          >Book title*
+          <input type="text" placeholder="Title" id="title" required />
+        </label>
+        <label
+          >Book author*
+          <input type="text" placeholder="Author" id="author" required />
+        </label>
+        <label
+          >Number of pages*
+          <input
+            type="number"
+            placeholder="Number of pages"
+            id="numOfpages"
+            required
+          />
+        </label>
+        <label for="bookSts">
+          <input type="checkbox" name="bookStatus" id="bookSts" value="yes" />
+          I have already read this book!</label
+        >
+        <button class="submitBook btn">Add</button>
+        <button class="clearAll btn">Clear all</button>
+      </form>
+    </section>
+    <div class="addBooks">
+      <span class="material-icons"> close </span>
+    </div>
+  </body>
+</html>
