@@ -1,4 +1,5 @@
 let myLibrary = [];
+let list = JSON.parse(localStorage.getItem('library'));
 
 const author = document.querySelector('#author');
 const numOfpages = document.querySelector('#numOfpages');
@@ -24,8 +25,7 @@ function Book(name, author, pages, status) {
     this.status = status;
 }
 
-function displayBook(e) {
-    e.preventDefault();
+function displayBook() {
     booksAdded.innerHTML = '';
     bookCount();
     for(let i = 0; i < myLibrary.length; i++) {
@@ -88,18 +88,22 @@ function addBookToLibrary(e) {
         myLibrary.push(book)
     }
     displayForm();
+    localStorage.setItem('library', JSON.stringify(myLibrary));
 }
 
 form.addEventListener('submit', addBookToLibrary);
 
 //Displaying books from lybrary
 
-form.addEventListener('submit', displayBook);
+form.addEventListener('submit', (e) => {
+    displayBook();
+});
 
 //Remove book from library
 function removeBook(e) {
     myLibrary.splice(e.target.dataset.num, 1);
     displayBook(e)
+    localStorage.setItem('library', JSON.stringify(myLibrary));
 }
 
 //Change books count
@@ -115,4 +119,13 @@ function bookCount() {
 function changeSatus(e) {
     myLibrary[e.target.dataset.index].status = !myLibrary[e.target.dataset.index].status;
     bookCount()
+    localStorage.setItem('library', JSON.stringify(myLibrary));
 }
+
+function addFromLocalStorage(list) {
+    if(list === null) return;
+    else list.forEach(lst => myLibrary.push(lst));
+    displayBook();
+}
+
+window.addEventListener('load', addFromLocalStorage(list))
